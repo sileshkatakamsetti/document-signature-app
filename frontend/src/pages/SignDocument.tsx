@@ -29,7 +29,7 @@ function SignDocument() {
 
       try {
 
-        const res = await axios.get(
+        const res = await axios.get<DocumentType>(
           `http://localhost:5000/api/docs/public/${documentId}`
         );
 
@@ -83,24 +83,23 @@ function SignDocument() {
 
       const token = localStorage.getItem("token");
 
-await axios.post(
-  "http://localhost:5000/api/signatures",
-  {
-    documentId,
-    page: 1,
-    x: position.x,
-    y: position.y,
-    signatureImage: image
-  },
-  token
-    ? {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    : {}
-);
-      
+      await axios.post(
+        "http://localhost:5000/api/signatures",
+        {
+          documentId,
+          page: 1,
+          x: position.x,
+          y: position.y,
+          signatureImage: image
+        },
+        token
+          ? {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            }
+          : {}
+      );
 
       alert("Signature saved successfully");
 
@@ -150,7 +149,6 @@ await axios.post(
           style={{ border: "1px solid #ccc" }}
         />
 
-        {/* click capture layer */}
         <div
           onClick={handleDocumentClick}
           style={{

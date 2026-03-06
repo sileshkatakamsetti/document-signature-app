@@ -41,7 +41,7 @@ const Dashboard = () => {
     const fetchDocs = async () => {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(
+      const res: any = await axios.get(
         "http://localhost:5000/api/docs/my-docs",
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -52,7 +52,7 @@ const Dashboard = () => {
     const fetchDocsToSign = async () => {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(
+      const res: any = await axios.get(
         "http://localhost:5000/api/docs/to-sign",
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -75,7 +75,7 @@ const Dashboard = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const res = await axios.get(
+        const res: any = await axios.get(
           `http://localhost:5000/api/signatures/${selectedDoc._id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -100,7 +100,7 @@ const Dashboard = () => {
 
       const token = localStorage.getItem("token");
 
-      const res = await axios.get(
+      const res: any = await axios.get(
         `http://localhost:5000/api/signers/${selectedDoc._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -199,7 +199,7 @@ const Dashboard = () => {
 
     const token = localStorage.getItem("token");
 
-    const res = await axios.post(
+    const res: any = await axios.post(
       "http://localhost:5000/api/signatures",
       {
         documentId: selectedDoc._id,
