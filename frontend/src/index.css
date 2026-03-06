@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ADD ONLY THIS */
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+#root {
+  min-height: 100vh;
+  overflow: visible;
+}
+
+/* FORCE browser-level scrolling (Word-style) */
+body {
+  overflow-y: auto !important;
+}
+
+/* OVERRIDE Tailwind h-screen locking scroll */
+.h-screen {
+  height: auto !important;
+}
